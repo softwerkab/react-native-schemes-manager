@@ -126,6 +126,7 @@ if [ $? -ne 0 ]; then
 fi
 
 BUNDLE_FILE="$DEST/main.jsbundle"
+SOURCE_MAP_FILE="$DEST/main.bundle.map"
 
 $NODE_BINARY "$CLI_PATH" bundle \
   --entry-file "$ENTRY_FILE" \
@@ -133,6 +134,7 @@ $NODE_BINARY "$CLI_PATH" bundle \
   --dev $DEV \
   --reset-cache \
   --bundle-output "$BUNDLE_FILE" \
+  --sourcemap-output "$SOURCE_MAP_FILE" \
   --assets-dest "$DEST"
 
 # XCode randomly generates user specific workspace files whenever it feels like it.
